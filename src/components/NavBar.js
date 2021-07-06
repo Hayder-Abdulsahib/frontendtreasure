@@ -6,6 +6,8 @@ import { useHistory } from "react-router-dom";
 
 import { signOut } from "../store/actions/authActions";
 
+import { toast } from "react-toastify";
+
 const NavBar = () => {
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
@@ -13,6 +15,7 @@ const NavBar = () => {
 
   const handleSignOut = () => {
     dispatch(signOut(history));
+    toast(`GoodBye ${user.username}`);
   };
   return (
     <div className="navbar navbar-expand">

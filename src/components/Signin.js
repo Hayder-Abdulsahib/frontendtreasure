@@ -12,6 +12,8 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 
+import { toast } from "react-toastify";
+
 const Signin = () => {
   const userIn = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
@@ -40,6 +42,7 @@ const Signin = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    toast(`Welcome back ${user.username}`);
     dispatch(signIn(user, history));
   };
 
@@ -93,6 +96,7 @@ const Signin = () => {
       <button type="submit" className="btn btn-info float-right">
         SignIn
       </button>
+
       {!userIn && (
         <div>
           <br />
