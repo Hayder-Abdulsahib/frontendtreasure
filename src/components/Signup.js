@@ -5,6 +5,13 @@ import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import IconButton from "@material-ui/core/IconButton";
+import InputLabel from "@material-ui/core/InputLabel";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import Input from "@material-ui/core/Input";
+
 const Signup = () => {
   const userIn = useSelector((state) => state.auth.user);
 
@@ -19,6 +26,18 @@ const Signup = () => {
     lastName: "",
   });
 
+  const handleClickShowPassword = () => {
+    setUser({ ...user, showPassword: !user.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const handlePasswordChange = (prop) => (event) => {
+    setUser({ ...user, [prop]: event.target.value });
+  };
+
   const handleChange = (event) =>
     setUser({ ...user, [event.target.name]: event.target.value });
 
@@ -31,7 +50,7 @@ const Signup = () => {
   return (
     <form className="container" onSubmit={handleSubmit}>
       <h1>SignUp Form</h1>
-      <div className="mb-3">
+      <div class="col-sm-3">
         <label className="form-label">username</label>
         <input
           type="text"
@@ -41,7 +60,7 @@ const Signup = () => {
           className="form-control"
         />
       </div>
-      <div className="mb-3">
+      {/* <div className="mb-3">
         <label className="form-label">password</label>
         <input
           type="password"
@@ -50,8 +69,32 @@ const Signup = () => {
           name="password"
           className="form-control"
         />
+      </div> */}
+
+      <div>
+        <br />
+        <InputLabel htmlFor="standard-adornment-password">
+          Enter your Password
+        </InputLabel>
+        <Input
+          type={user.showPassword ? "text" : "password"}
+          onChange={handlePasswordChange("password")}
+          value={user.password}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                onClick={handleClickShowPassword}
+                onMouseDown={handleMouseDownPassword}
+              >
+                {user.showPassword ? <Visibility /> : <VisibilityOff />}
+              </IconButton>
+            </InputAdornment>
+          }
+        />
       </div>
-      <div className="mb-3">
+
+      <br />
+      <div class="col-sm-3">
         <label className="form-label">email</label>
         <input
           type="email"
@@ -61,7 +104,7 @@ const Signup = () => {
           className="form-control"
         />
       </div>
-      <div className="mb-3">
+      <div class="col-sm-3">
         <label className="form-label">firstName</label>
         <input
           type="text"
@@ -71,7 +114,7 @@ const Signup = () => {
           className="form-control"
         />
       </div>
-      <div className="mb-3">
+      <div class="col-sm-3">
         <label className="form-label">lastName</label>
         <input
           type="text"
