@@ -7,7 +7,7 @@ export const Center = styled.h1`
 
 export const Logo = styled(Link)`
   img {
-    width: 8rem;
+    width: 4rem;
   }
 `;
 // export const TresureButton = styled(Link)`
@@ -15,14 +15,21 @@ export const Logo = styled(Link)`
 // `;
 
 export const NavItem = styled(NavLink)`
-  color: "red";
+  color: #0a46c5;
   padding: 0.25em 1em;
 
   &.active {
-    color: "white";
+    color: #ff0000;
   }
 `;
 
 export const SignupButton = styled(Link)`
   width: 8rem;
+`;
+
+export const GlobalStyle = createGlobalStyle`
+  body {
+    
+    background-color: #dfdfdf
+  }
 `;

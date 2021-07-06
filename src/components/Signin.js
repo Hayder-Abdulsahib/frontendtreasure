@@ -42,14 +42,16 @@ const Signin = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    toast(`Welcome back ${user.username}`);
+
+    //   toast(`Welcome back ${user.username}`); we could put the toast here but the problem each time the button is clicked it will show the toast so the right place to put it is inside the authaction
+
     dispatch(signIn(user, history));
   };
 
   return (
     <form className="container" onSubmit={handleSubmit}>
       <h1>SignIn Form</h1>
-      <div class="col-sm-3">
+      <div className="col-sm-3">
         <label className="form-label">username</label>
         <input
           type="text"
@@ -60,17 +62,7 @@ const Signin = () => {
           className="form-control"
         />
       </div>
-      {/* <div className="mb-3">
-        <label className="form-label">password</label>
-        <input
-          type="password"
-          value={user.password}
-          onChange={handleChange}
-          name="password"
-          placeholder="enter password"
-          className="form-control"
-        />
-      </div> */}
+
       <div>
         <br />
         <InputLabel htmlFor="standard-adornment-password">

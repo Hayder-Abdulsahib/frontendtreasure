@@ -1,5 +1,10 @@
 const GarbageItem = ({ garbage }) => {
-  return <p>{garbage.name}</p>;
+  return (
+    <div>
+      <h3>{garbage.name}</h3>
+      <hr />
+    </div>
+  );
 };
 
 export default GarbageItem;

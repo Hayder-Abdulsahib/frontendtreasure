@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import GarbageItem from "./GarbageItem";
+import { Center } from "../styles";
 
 const GarbageList = () => {
   const garbages = useSelector((state) => state.garbages.garbages);
@@ -13,7 +14,16 @@ const GarbageList = () => {
     <GarbageItem garbage={garbage} key={garbage.id} />
   ));
 
-  return <div>{garbageList}</div>;
+  return (
+    <div>
+      <Center>
+        <br />
+        <h2>Garbage List</h2>
+        <br />
+        {garbageList}
+      </Center>
+    </div>
+  );
 };
 
 export default GarbageList;

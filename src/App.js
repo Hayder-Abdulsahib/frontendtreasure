@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router";
 import Home from "./components/Home";
 import TreasureList from "./components/TreasureList";
 import GarbageList from "./components/GarbageList";
-import { useSelector, useDispatch } from "react-redux";
+import { GlobalStyle } from "./styles";
 
 import NavBar from "./components/NavBar";
 import Signup from "./components/Signup";
@@ -27,6 +27,7 @@ function App() {
         draggable
         pauseOnHover
       />
+      <GlobalStyle />
       <NavBar />
       <Switch>
         <Route path="/signin">

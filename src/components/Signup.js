@@ -12,8 +12,6 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 
-import { toast } from "react-toastify";
-
 const Signup = () => {
   const userIn = useSelector((state) => state.auth.user);
 
@@ -45,14 +43,13 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    toast(`Hello ${user.username}`);
     dispatch(signUp(user, history));
   };
 
   return (
     <form className="container" onSubmit={handleSubmit}>
       <h1>SignUp Form</h1>
-      <div class="col-sm-3">
+      <div className="col-sm-3">
         <label className="form-label">username</label>
         <input
           type="text"
@@ -62,16 +59,6 @@ const Signup = () => {
           className="form-control"
         />
       </div>
-      {/* <div className="mb-3">
-        <label className="form-label">password</label>
-        <input
-          type="password"
-          value={user.password}
-          onChange={handleChange}
-          name="password"
-          className="form-control"
-        />
-      </div> */}
 
       <div>
         <br />
@@ -96,7 +83,7 @@ const Signup = () => {
       </div>
 
       <br />
-      <div class="col-sm-3">
+      <div className="col-sm-3">
         <label className="form-label">email</label>
         <input
           type="email"
@@ -106,7 +93,7 @@ const Signup = () => {
           className="form-control"
         />
       </div>
-      <div class="col-sm-3">
+      <div className="col-sm-3">
         <label className="form-label">firstName</label>
         <input
           type="text"
@@ -116,7 +103,7 @@ const Signup = () => {
           className="form-control"
         />
       </div>
-      <div class="col-sm-3">
+      <div className="col-sm-3">
         <label className="form-label">lastName</label>
         <input
           type="text"
@@ -126,6 +113,7 @@ const Signup = () => {
           className="form-control"
         />
       </div>
+      <br />
 
       <button type="submit" className="btn btn-info float-right">
         SignUp

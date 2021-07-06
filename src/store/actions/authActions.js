@@ -3,12 +3,18 @@ import decode from "jwt-decode";
 import instance from "./instance";
 import { treasuareList } from "./treasureActions";
 
+import { toast } from "react-toastify";
+
 export const SET_USER = "SET_USER";
 
 export const signUp = (userData, history) => {
   return async (dispatch) => {
     try {
       const res = await axios.post("http://localhost:8000/signup", userData);
+
+      if (setUser(res.data.token))
+        toast(`congratulation your account was created successfully`);
+
       dispatch(setUser(res.data.token));
       dispatch(await treasuareList());
       history.push("/");
@@ -26,6 +32,9 @@ export const signIn = (userData, history) => {
     try {
       const res = await axios.post("http://localhost:8000/signin", userData);
       // console.log("res", decode(res.data.token));
+
+      if (setUser(res.data.token)) toast(`Hello again`);
+
       dispatch(setUser(res.data.token));
       dispatch(await treasuareList());
       history.push("/");

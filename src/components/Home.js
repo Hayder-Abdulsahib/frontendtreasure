@@ -11,16 +11,19 @@ const Home = () => {
     <div>
       <Center>
         <img src="https://drclue.com/wp-content/uploads/2016/11/trasure-hunt.jpg" />
+
         {user && (
           <div>
+            <br />
             <Link to={"/treasures"}>
-              <button>Treasure List</button>
+              <button className="btn btn-warning">Treasure List</button>
             </Link>
           </div>
         )}
+        <br />
         <div>
           <Link to={"/garbage"}>
-            <button>Garbage List</button>
+            <button className="btn btn-danger">Garbage List</button>
           </Link>
         </div>
       </Center>

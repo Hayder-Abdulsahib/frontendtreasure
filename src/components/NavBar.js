@@ -15,7 +15,7 @@ const NavBar = () => {
 
   const handleSignOut = () => {
     dispatch(signOut(history));
-    toast(`GoodBye ${user.username}`);
+    toast(`Goodbye ${user.username}`);
   };
   return (
     <div className="navbar navbar-expand">
@@ -27,10 +27,19 @@ const NavBar = () => {
       </Logo>
       <div className="navbar-nav ml-auto">
         {user ? (
-          <NavItem className="nav-item" to="/">
-            <h5>Hello {user.username}</h5>
-            <button onClick={handleSignOut}>Sign Out</button>
-          </NavItem>
+          <>
+            <NavItem className="nav-item" exact to="/">
+              <p>Hello {user.username}</p>
+            </NavItem>
+            <NavItem className="nav-item" to="/">
+              <button
+                onClick={handleSignOut}
+                className="btn btn-info float-right"
+              >
+                Sign Out
+              </button>
+            </NavItem>
+          </>
         ) : (
           <>
             <NavItem className="nav-item" to="/signin">

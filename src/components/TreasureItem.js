@@ -1,5 +1,10 @@
 const TreasureItem = ({ treasure }) => {
-  return <p>{treasure.name}</p>;
+  return (
+    <div>
+      <h3>{treasure.name}</h3>
+      <hr />
+    </div>
+  );
 };
 
 export default TreasureItem;
